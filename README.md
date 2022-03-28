@@ -52,8 +52,6 @@ Faculty Supervisor: Lloyd Elliott
 
 ### 2. Model selection
 * Forecasting internet speeds (upload and download): 
-  * Model performance:
-    * We can use 'leave-the-latest-out'. Fit our models using t to T-1 data, and test the model performance on the 2021-Q4 data.
   * Since it looks like a time-series problem the most intuitive model would be the ARIMA-type models.
     * Recursive AR using scikit-learn: https://www.cienciadedatos.net/documentos/py27-time-series-forecasting-python-scikitlearn.html
     * Spatial Autocorrelation and regression: 
@@ -65,3 +63,6 @@ Faculty Supervisor: Lloyd Elliott
   * Bayesian methods? (need ref)
 * Comparison between the regions.
   * ANOVA between the nearby regions?
+
+### 3. Model performance
+* We can use 'leave-the-latest-out'. Fit our models using t to T-1 data, and test the model performance on the 2021-Q4 data.
