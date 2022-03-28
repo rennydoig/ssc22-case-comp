@@ -56,7 +56,9 @@ Faculty Supervisor: Lloyd Elliott
     * We can use 'leave-the-latest-out'. Fit our models using t to T-1 data, and test the model performance on the 2021-Q4 data.
   * The most intuitive model would be the ARIMA-type model.
     * Recursive AR using scikit-learn: https://www.cienciadedatos.net/documentos/py27-time-series-forecasting-python-scikitlearn.html
-    * Spatial Autocorrelation: https://geographicdata.science/book/notebooks/06_spatial_autocorrelation.html
+    * Spatial Autocorrelation and regression: 
+      * https://geographicdata.science/book/notebooks/06_spatial_autocorrelation.html
+      * https://geographicdata.science/book/notebooks/11_regression.html
   * The mixed effects model Y<sub>d</sub> = &alpha; + &beta;<sub>1</sub> X<sub>1</sub> + U<sub>j</sub> + W<sub>ij</sub>
     * where Y<sub>d</sub>: download speed, X<sub>1</sub>: time (fixed effect), U<sub>j</sub> &sim; N(&mu;, &sigma;) a category-specific random effect, W<sub>ij</sub>: an individual-specific random effect.
   * Beta regression? (need ref)
