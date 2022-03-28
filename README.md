@@ -51,6 +51,7 @@ Faculty Supervisor: Lloyd Elliott
   
 
 ### 2. Model selection
+* We want our model parameters and outputs to be interpretable to be able to produce some actionable statement.
 * Forecasting internet speeds (upload and download): 
   * Since it looks like a time-series problem the most intuitive model would be the ARIMA-type models.
     * Recursive AR using scikit-learn: https://www.cienciadedatos.net/documentos/py27-time-series-forecasting-python-scikitlearn.html
