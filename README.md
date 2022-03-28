@@ -46,7 +46,7 @@ Faculty Supervisor: Lloyd Elliott
   * Other ways to merge(dissolve) the nearest-k tiles together.
     * 'Spatial Regionalization': clustering where the objective is to group observations which are similar in their statistical attributes, but also in their spatial location. 
       * Daisy's method showed that there were many clusters with only one tile.
-      * Try k-nearest described on https://geographicdata.science/book/notebooks/10_clustering_and_regionalization.html
+      * Try the k-nearest neighbours method described on https://geographicdata.science/book/notebooks/10_clustering_and_regionalization.html
   * For now, we shall use the census division. We can test different clustering methods and see which one gives us the best result later.
   
 
