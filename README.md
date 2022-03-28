@@ -3,7 +3,7 @@
 Team Members: Sonny Min, Daisy Yu, Olga Vishnyakova, and Renny Doig  
 Faculty Supervisor: Lloyd Elliott  
 
----
+<br />
 
 
 ## Goals (stated on the case-study website):
@@ -46,8 +46,6 @@ Faculty Supervisor: Lloyd Elliott
       * Daisy's method showed that there were many clusters with only one tile.
   * For now, we shall use the census division. We can test different clustering methods and see which one gives us the best result later.
   
-
-<br />
 
 ### 2. Model selection
 * Forecasting internet speeds (upload and download): time-series problem.
