@@ -57,6 +57,6 @@ Faculty Supervisor: Lloyd Elliott
   * The most intuitive model would be the ARIMA-type model.
     * Recursive AR using scikit-learn: https://www.cienciadedatos.net/documentos/py27-time-series-forecasting-python-scikitlearn.html
   * The mixed effects model Y<sub>d</sub> = &alpha; + &beta;<sub>1</sub> X<sub>1</sub> + &beta;<sub>2</sub> X<sub>2</sub>
-    * where Y<sub>d</sub>: download speed, X<sub>1</sub>: time (fixed effect), X<sub>2</sub>:  a category (random effect). &beta; <sub>2</sub> &sim; N(&mu;, &sigma;).
+    * where Y<sub>d</sub>: download speed, X<sub>1</sub>: time (fixed effect), U; <sub>j</sub> &sim; N(&mu;, &sigma;) a category-specific random effect of j.
 * Comparison between the regions.
   * ANOVA between the nearby regions?
