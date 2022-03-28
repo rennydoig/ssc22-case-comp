@@ -54,15 +54,18 @@ Faculty Supervisor: Lloyd Elliott
 ### 2. Model selection
 * We want our model parameters and outputs to be interpretable to be able to produce some actionable statement.
 * Forecasting internet speeds (upload and download): 
-  * Since it looks like a time-series problem the most intuitive model would be the ARIMA-type models.
-    * Recursive AR using scikit-learn: https://www.cienciadedatos.net/documentos/py27-time-series-forecasting-python-scikitlearn.html
-    * Spatial Autocorrelation and regression: 
-      * https://geographicdata.science/book/notebooks/06_spatial_autocorrelation.html
-      * https://geographicdata.science/book/notebooks/11_regression.html
-  * The mixed effects model Y<sub>d</sub> = &alpha; + &beta;<sub>1</sub> X<sub>1</sub> + U<sub>j</sub> + W<sub>ij</sub>
-    * where Y<sub>d</sub>: download speed, X<sub>1</sub>: time (fixed effect), U<sub>j</sub> a category-specific random effect, W<sub>ij</sub>: an individual-specific random effect.
-  * Beta regression: https://sst-stats-sfu.slack.com/files/U010MPK0QHM/F039QQ1S916/beta_regression_for_modelling_rates_and_proportions.pdf
-  * Bayesian methods? (need ref) Too niche?
+  * Models to consider:
+   * Since it looks like a time-series problem the most intuitive model would be the ARIMA-type models.
+     * (Olga) Recursive AR using scikit-learn: https://www.cienciadedatos.net/documentos/py27-time-series-forecasting-python-scikitlearn.html
+     * (Sonny) Spatial Autocorrelation and regression: 
+       * https://geographicdata.science/book/notebooks/06_spatial_autocorrelation.html
+       * https://geographicdata.science/book/notebooks/11_regression.html
+   * (Daisy) The mixed effects model Y<sub>d</sub> = &alpha; + &beta;<sub>1</sub> X<sub>1</sub> + U<sub>j</sub> + W<sub>ij</sub>
+     * where Y<sub>d</sub>: download speed, X<sub>1</sub>: time (fixed effect), U<sub>j</sub> a category-specific random effect, W<sub>ij</sub>: an individual-specific random effect.
+   * (Renny) Beta regression: 
+     * https://sst-stats-sfu.slack.com/files/U010MPK0QHM/F039QQ1S916/beta_regression_for_modelling_rates_and_proportions.pdf
+   * Bayesian methods? (need ref) Too niche?
+  * conn_type seems to be an important factor to include in the models
 * Comparison between the regions.
   * ANOVA between the nearby regions?
 
