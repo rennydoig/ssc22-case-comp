@@ -47,7 +47,7 @@ Faculty Supervisor: Lloyd Elliott
     * 'Spatial Regionalization': clustering where the objective is to group observations which are similar in their statistical attributes, but also in their spatial location. 
       * Daisy's method showed that there were many clusters with only one tile.
       * Try the k-nearest neighbours method described on https://geographicdata.science/book/notebooks/10_clustering_and_regionalization.html
-  * For now, we shall use the census division. We can test different clustering methods and see which one gives us the best result later.
+  * For now, we shall use the census division and try several models first. We can test different clustering methods once we have some solid model.
   
 
 ### 2. Model selection
