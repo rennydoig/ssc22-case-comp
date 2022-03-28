@@ -26,23 +26,8 @@ Faculty Supervisor: Lloyd Elliott
 ## Terminology and variables
 * tiles: refer to each observation.
 * regions, clusters: refer to groups of tiles.
-* Variables: see https://ssc.ca/en/case-study/towards-a-clear-understanding-rural-internet-what-statistical-measures-can-be-used-assess
-    * quadkey: tile identifier
-    * avg_d_kbps: download speed in kbps
-    * avg_u_kbps: upload speed in kbps
-    * avg_lat_ms: latency in ms
-    * devices: number of devices in each tile (counts)
-    * year: test year
-    * quarter: test quarter
-    * conn_type: connection type (binary: fixed, mobile)
-    * PRUID: province ID in two digits
-    * CDUID: census division ID
-    * DAUID: dissemination area ID
-    * SACTYPE: statistical classification code (categorical)
-    * DA_POP: dissemination area population (integer, NA)
-    * PCTYPE: population centre type (rural, small, medium, large)
-    * PCCLASS: population centre size class (small, medium, large)
-
+* Variables: see https://ssc.ca/en/case-study/towards-a-clear-understanding-rural-internet-what-statistical-measures-can-be-used-assess for detailed descriptions
+    
 <br />
 
 
