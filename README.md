@@ -55,10 +55,7 @@ Faculty Supervisor: Lloyd Elliott
     * We can use 'leave-the-latest-out'. Fit our models using t to T-1 data, and test the model performance on the 2021-Q4 data.
   * The most intuitive model would be the ARIMA-type model.
     * Recursive AR using scikit-learn: https://www.cienciadedatos.net/documentos/py27-time-series-forecasting-python-scikitlearn.html
-  * The mixed effects model.
-
-> Y<sub>d</sub> = &alpha; + &beta;<sub>1</sub> X<sub>1</sub> + &beta;<sub>2</sub> X<sub>2</sub>
-
- * where Y<sub>d</sub>: download speed, X<sub>1</sub>: time (fixed effect), X<sub>2</sub>:  a category (random effect). &beta; <sub>2</sub> &sim; N(&mu;, &sigma;).
+  * The mixed effects model Y<sub>d</sub> = &alpha; + &beta;<sub>1</sub> X<sub>1</sub> + &beta;<sub>2</sub> X<sub>2</sub>
+    * where Y<sub>d</sub>: download speed, X<sub>1</sub>: time (fixed effect), X<sub>2</sub>:  a category (random effect). &beta; <sub>2</sub> &sim; N(&mu;, &sigma;).
 * Comparison between the regions.
   * ANOVA between the nearby regions?
