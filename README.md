@@ -3,8 +3,10 @@
 Team Members: Sonny Min, Daisy Yu, Olga Vishnyakova, and Renny Doig  
 Faculty Supervisor: Lloyd Elliott  
 
+---
 
-### Goals (stated on the case-study website):
+
+## Goals (stated on the case-study website):
 * A statistical analysis of the current realized and forecasted internet speeds (upload and download) for rural and underserved communities in terms of progress towards the Commitment;
 * A comparative analysis of rural and underserved communities in terms of progress towards the Commitment; and
 * The identification of statistically reliable methods to assess and compare rural and underserved communities's realized internet access.
@@ -12,23 +14,23 @@ Faculty Supervisor: Lloyd Elliott
 <br />
 
 
-### What do we want to achieve?
+## What do we want to achieve?
 * We want to help policy makers identify the regions that need more attention to achieve the **minimum speeds of 50 Mbps download and 10 Mbps upload (hereinafter referred to as the “Commitment”) by 2026, and 100% by 2030**. 
   * Identify which regions currently have poor internet qualities.
   * Identify which regions are showing relatively slower increases in the internet quality over time.
 
 <br />
 
-### Terminology
+## Terminology
 * tiles: refer to each observation.
 * regions, clusters: refer to groups of tiles.
 
 <br />
 
 
-### Tasks
+## Tasks
 
-#### 1. Tile classification / regionalization
+### 1. Tile classification / regionalization
 * A lot of tiles have missing download/upload/latency data. We can choose to impute them or aggregate the tiles.
 * How to merge (dissolve) nearby tiles together?
   * Use existing classifications: Municipality, census division, etc
