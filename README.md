@@ -23,9 +23,10 @@ Faculty Supervisor: Lloyd Elliott
 
 <br />
 
-## Terminology
+## Terminology and variables
 * tiles: refer to each observation.
 * regions, clusters: refer to groups of tiles.
+* Variables: see https://ssc.ca/en/case-study/towards-a-clear-understanding-rural-internet-what-statistical-measures-can-be-used-assess
 
 <br />
 
