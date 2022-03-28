@@ -57,7 +57,7 @@ Faculty Supervisor: Lloyd Elliott
     * Recursive AR using scikit-learn: https://www.cienciadedatos.net/documentos/py27-time-series-forecasting-python-scikitlearn.html
   * The mixed effects model.
 
-$$'Y_{d} = \alpha + \beta_1 X_1 + \beta_2 X_2 '$$
+Y<sub>d<\sub> = &alpha; + &beta;<sub>1<\sub> X<sub>1<\sub> + &beta;<sub>2<\sub> X<sub>2<\sub>
 
 where $Y_d$: download speed, $X_1$: time (fixed effect), $X_2$:  a category (random effect). $\beta_2 \sim N(\mu, \sigma)$.
 * Comparison between the regions.
