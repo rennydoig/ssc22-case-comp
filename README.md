@@ -33,17 +33,19 @@ Faculty Supervisor: Lloyd Elliott
 
 ## Tasks
 
-### 1. Tile classification / regionalization
+### 1. Tile clustering / regionalization
 * A lot of tiles have missing download/upload/latency data. We can choose to impute them or aggregate the tiles.
 * How to merge (dissolve, aggregate) nearby tiles together?
   * Use the existing classifications: Municipality, census division, etc
     * In terms of the number of observations we can work with, DA > municipalities (or electorial divisions) >= census divisions > Provinces.
-    * Why choose one over the other?
+    * DA vs CD vs. Municipalities: 
+      * Have not tried aggregation by DA yet but we can expect the largest number of training instances from DA.
       * In the policy-making perspective, division by municipalities would make more sense.
-      * But we do not have the municipality boundary data. Must find and import from external sources. May be not feasible. 
-    * Olga and Daisy's explorations using the census division on Canada & Alberta data look good.
-    * Do we have many unique CDNAME or CDUID for all provinces?
-      * Some provinces have only 1(Yukon) or 3(Nunavut) CDNAME across the provinces.
+         * However, we do not have the municipality boundary data in the original dataset. Must find and import from external sources. May be not feasible. 
+      * Olga and Daisy's explorations using the census division on Canada & Alberta data look good.
+      * Do we have many unique CDNAME or CDUID for all provinces?
+        * Some provinces have only 1(Yukon) or 3(Nunavut) CDNAME across the provinces.
+        * Some CDNAMEs could be repeated in some provinces. Better to use CDUID.
   * Other ways to merge(dissolve) the nearest-k tiles together.
     * 'Spatial Regionalization': clustering where the objective is to group observations which are similar in their statistical attributes, but also in their spatial location. 
     * Clustering based only on the polygon data showed that there were many clusters with only one tile.
