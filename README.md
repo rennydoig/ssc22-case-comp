@@ -59,6 +59,7 @@ Faculty Supervisor: Lloyd Elliott
     * Spatial Autocorrelation: https://geographicdata.science/book/notebooks/06_spatial_autocorrelation.html
   * The mixed effects model Y<sub>d</sub> = &alpha; + &beta;<sub>1</sub> X<sub>1</sub> + U<sub>j</sub> + W<sub>ij</sub>
     * where Y<sub>d</sub>: download speed, X<sub>1</sub>: time (fixed effect), U<sub>j</sub> &sim; N(&mu;, &sigma;) a category-specific random effect, W<sub>ij</sub>: an individual-specific random effect.
-  * Bayesian methods?
+  * Beta regression? (need ref)
+  * Bayesian methods? (need ref)
 * Comparison between the regions.
   * ANOVA between the nearby regions?
