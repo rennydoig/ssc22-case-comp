@@ -35,8 +35,9 @@ Faculty Supervisor: Lloyd Elliott
 
 ### 1. Tile classification / regionalization
 * A lot of tiles have missing download/upload/latency data. We can choose to impute them or aggregate the tiles.
-* How to merge (dissolve) nearby tiles together?
-  * Use existing classifications: Municipality, census division, etc
+* How to merge (dissolve, aggregate) nearby tiles together?
+  * Use the existing classifications: Municipality, census division, etc
+    * In terms of the number of observations we can work with, DA > municipalities (or electorial divisions) >= census divisions > Provinces.
     * Why choose one over the other?
       * In the policy-making perspective, division by municipalities would make more sense.
       * But we do not have the municipality boundary data. Must find and import from external sources. May be not feasible. 
@@ -45,14 +46,15 @@ Faculty Supervisor: Lloyd Elliott
       * Some provinces have only 1(Yukon) or 3(Nunavut) CDNAME across the provinces.
   * Other ways to merge(dissolve) the nearest-k tiles together.
     * 'Spatial Regionalization': clustering where the objective is to group observations which are similar in their statistical attributes, but also in their spatial location. 
-      * Daisy's method showed that there were many clusters with only one tile.
-      * Try the k-nearest neighbours method described on https://geographicdata.science/book/notebooks/10_clustering_and_regionalization.html
-  * DA < census division <= municipalities < Province < Canada 
+    * Clustering based only on the polygon data showed that there were many clusters with only one tile.
+    * DBSCAN clustering looks okay.
+    * Can try the k-nearest neighbours method described on https://geographicdata.science/book/notebooks/10_clustering_and_regionalization.html
   * For now, we shall use the census division and try several models first. We can test different clustering methods once we have some solid model.
   
 
 ### 2. Model selection
 * We want our model parameters and outputs to be interpretable to be able to produce some actionable statement.
+  * Rules out DNN, random forests, etc  
 * Forecasting internet speeds (upload and download): 
   * Models to consider:
     * Since it looks like a time-series problem the most intuitive model would be the ARIMA-type models.
