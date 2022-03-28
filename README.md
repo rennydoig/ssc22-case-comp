@@ -52,7 +52,7 @@ Faculty Supervisor: Lloyd Elliott
 
 ### 2. Model selection
 * Forecasting internet speeds (upload and download): time-series problem.
-  * Metric:
+  * Model performance:
     * We can use 'leave-the-latest-out'. Fit our models using t to T-1 data, and test the model performance on the 2021-Q4 data.
   * The most intuitive model would be the ARIMA-type model.
     * Recursive AR using scikit-learn: https://www.cienciadedatos.net/documentos/py27-time-series-forecasting-python-scikitlearn.html
