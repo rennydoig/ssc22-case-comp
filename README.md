@@ -39,10 +39,9 @@ Faculty Supervisor: Lloyd Elliott
     * Why choose one over the other?
       * In the policy-making perspective, division by municipalities would make more sense.
       * But we do not have the municipality boundary data. Must find and import from external sources. May be not feasible. 
-    * Olga and Daisy's explorations on Canada & Alberta look good.
-    * Do we have unique CDNAME or CDUID for all provinces?
-      * NW territories: looks good
-      * Yukon: has only one CDNAME across the province.
+    * Olga and Daisy's explorations using the census division on Canada & Alberta data look good.
+    * Do we have many unique CDNAME or CDUID for all provinces?
+      * Some provinces have only 1(Yukon) or 3(Nunavut) CDNAME across the provinces.
   * Other ways to merge(dissolve) the nearest-k tiles together.
     * 'Spatial Regionalization': clustering where the objective is to group observations which are similar in their statistical attributes, but also in their spatial location. 
       * Daisy's method showed that there were many clusters with only one tile.
