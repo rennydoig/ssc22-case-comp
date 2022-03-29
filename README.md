@@ -2,6 +2,8 @@ SC 2022 Case Competition
 
 Website: https://ssc.ca/en/case-study/towards-a-clear-understanding-rural-internet-what-statistical-measures-can-be-used-assess
 
+Website: https://ssc.ca/en/case-study/towards-a-clear-understanding-rural-internet-what-statistical-measures-can-be-used-assess
+
 Team Members: Sonny Min, Daisy Yu, Olga Vishnyakova, and Renny Doig  
 Faculty Supervisor: Lloyd Elliott  
 
@@ -81,4 +83,3 @@ Faculty Supervisor: Lloyd Elliott
 
 (28 March 2022)
 * Each member tries a forecasting model using data aggregated by DAUID, CDUID
-
