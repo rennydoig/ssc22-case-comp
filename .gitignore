@@ -1,2 +1,6 @@
 sonny_dir/git_operations*
 dataset/
+*.pyc*
+__pycache__/
+*.un*
+*.lnk
