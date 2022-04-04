@@ -37,7 +37,7 @@ Faculty Supervisor: Lloyd Elliott
 * A lot of tiles have missing download/upload/latency data. We can choose to impute them or aggregate the tiles.
 * How to merge (dissolve, aggregate) nearby tiles together?
   * Use the existing classifications: Municipality, census division, etc
-    * In terms of the number of observations we can work with, DA > municipalities (or electorial divisions) >= census divisions > Provinces.
+    * In terms of the number of observations we can work with, dissemination blocks > dissemination areas (>50k instances) > municipalities (='census subdivisions'. >5k instances) > census divisions (~293 instances) > Provinces.
     * DA vs CD vs. Municipalities: 
       * Have not tried aggregation by DA yet but we can expect the largest number of training instances from DA.
       * In the policy-making perspective, division by municipalities would make more sense.
