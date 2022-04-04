@@ -56,6 +56,14 @@ stan_data <- list(n = n,
                   x = cbind(rep(1, n), data_agg$time, data_agg$conn_bin, data_agg$conn_t_int))
 
 
+# Generate some plots ----------------------------------------------------------
+
+which_CD <- sample(unique(data_agg$CDUID), 1)
+
+filter(data_agg, CDUID==which_CD) %>%
+  ggplot(aes(x=time, y=prop_d, colour=conn_type)) + 
+  geom_point() + geom_line()
+
 
 # Run Stan ---------------------------------------------------------------------
 
@@ -68,7 +76,13 @@ init_func <- function(){
        phi = runif(1, 0, 10))
 }
 
-fit <- stan(file="betareg.stan", data=stan_data, chains=4,
-            init = init_func, seed=2)
+if(file.exists("betareg_fit.rds")){fit <- readRDS("betareg_fit.rds")} else{
+  fit <- stan(file="betareg.stan", data=stan_data, chains=4,
+              init = init_func, seed=2, iter=5000)
+  saveRDS(fit, "betareg_fit.rds")
+}
 
-save.image("betareg_fit.RData")
+
+# Process results --------------------------------------------------------------
+
+

@@ -20,10 +20,10 @@ parameters {
 model {
   for(i in 1:n)
   {
-    real p = inv_logit(sum(beta * x[i,]));
+    real p = inv_logit(sum(alpha * x[i,]));
     
     if(y[i] == 1){
-      target += log(inv_logit(sum(alpha * x[i,])));
+      target += log(p);
     } else{
       real mu = inv_logit(sum(beta * x[i,]));
       
