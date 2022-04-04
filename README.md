@@ -76,10 +76,6 @@ Faculty Supervisor: Lloyd Elliott
   * ANOVA between the nearby regions?
 
 ### 3. Model performance
-* We can use 'leave-the-latest-out'. Fit our models using t to T-1 data, and test the model performance on the 2021-Q4 data.
+* We can use 'leave-the-latest-out'. Fit our models using t to T-1 data, and test the model performance on the 2021-Q4 data
 
 
----
-
-(28 March 2022)
-* Each member tries a forecasting model using data aggregated by DAUID, CDUID
