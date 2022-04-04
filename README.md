@@ -37,7 +37,7 @@ Faculty Supervisor: Lloyd Elliott
 * A lot of tiles have missing download/upload/latency data. We can choose to impute them or aggregate the tiles.
 * How to merge (dissolve, aggregate) nearby tiles together?
   * Use the existing classifications: Municipality, census division, etc
-    * In terms of the number of observations we can work with, DA > municipalities (or electorial divisions) >= census divisions > Provinces.
+    * In terms of the number of observations we can work with, dissemination blocks > dissemination areas (>50k instances) > municipalities (='census subdivisions'. >5k instances) > census divisions (~293 instances) > Provinces.
     * DA vs CD vs. Municipalities: 
       * Have not tried aggregation by DA yet but we can expect the largest number of training instances from DA.
       * In the policy-making perspective, division by municipalities would make more sense.
@@ -67,6 +67,7 @@ Faculty Supervisor: Lloyd Elliott
       * https://ranasinghiitkgp.medium.com/time-series-forecasting-using-lstm-arima-moving-average-use-case-single-multi-variate-with-code-5dd41e32d1fc
     * (Daisy) The mixed effects model Y<sub>d</sub> = &alpha; + &beta;<sub>1</sub> X<sub>1</sub> + U<sub>j</sub> + W<sub>ij</sub>
       * where Y<sub>d</sub>: download speed, X<sub>1</sub>: time (fixed effect), U<sub>j</sub> a category-specific random effect, W<sub>ij</sub>: an individual-specific random effect.
+      * https://watermark.silverchair.com/kxh014.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf[…]OvVzFjg_NEYgj8OjvJwjHJKs6AuvhqMfsPRp3NRIoAMdjZuVtl1VGlRJ
     * (Renny) Beta regression: 
       * https://sst-stats-sfu.slack.com/files/U010MPK0QHM/F039QQ1S916/beta_regression_for_modelling_rates_and_proportions.pdf
     * Bayesian methods? (need ref) Too niche?
@@ -75,10 +76,6 @@ Faculty Supervisor: Lloyd Elliott
   * ANOVA between the nearby regions?
 
 ### 3. Model performance
-* We can use 'leave-the-latest-out'. Fit our models using t to T-1 data, and test the model performance on the 2021-Q4 data.
+* We can use 'leave-the-latest-out'. Fit our models using t to T-1 data, and test the model performance on the 2021-Q4 data
 
 
----
-
-(28 March 2022)
-* Each member tries a forecasting model using data aggregated by DAUID, CDUID
