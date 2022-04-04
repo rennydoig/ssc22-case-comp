@@ -63,7 +63,8 @@ Faculty Supervisor: Lloyd Elliott
     * (Olga) Recursive AR using scikit-learn: https://www.cienciadedatos.net/documentos/py27-time-series-forecasting-python-scikitlearn.html
     * (Sonny) Spatial Autocorrelation and regression: 
       * https://geographicdata.science/book/notebooks/06_spatial_autocorrelation.html
-      * https://geographicdata.science/book/notebooks/11_regression.html
+      * <s>https://geographicdata.science/book/notebooks/11_regression.html</s> --> did not work...
+      * https://ranasinghiitkgp.medium.com/time-series-forecasting-using-lstm-arima-moving-average-use-case-single-multi-variate-with-code-5dd41e32d1fc
     * (Daisy) The mixed effects model Y<sub>d</sub> = &alpha; + &beta;<sub>1</sub> X<sub>1</sub> + U<sub>j</sub> + W<sub>ij</sub>
       * where Y<sub>d</sub>: download speed, X<sub>1</sub>: time (fixed effect), U<sub>j</sub> a category-specific random effect, W<sub>ij</sub>: an individual-specific random effect.
     * (Renny) Beta regression: 
