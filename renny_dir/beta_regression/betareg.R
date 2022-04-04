@@ -25,6 +25,7 @@ merge_time <- Vectorize(function(year, quarter){
 data_agg <- data %>%
   select(c(avg_d_kbps, avg_u_kbps, tests, year, quarter, conn_type, CDUID, 
            DAUID, PRUID, SACTYPE, DA_POP, PCUID, PCTYPE, PCCLASS)) %>%
+  filter(is.na(PCUID)) %>%
   mutate(avg_d_mbps = avg_d_kbps / 1024,
          avg_u_mbps = avg_u_kbps / 1024,
          time = merge_time(year, quarter),
