@@ -67,6 +67,7 @@ Faculty Supervisor: Lloyd Elliott
       * https://ranasinghiitkgp.medium.com/time-series-forecasting-using-lstm-arima-moving-average-use-case-single-multi-variate-with-code-5dd41e32d1fc
     * (Daisy) The mixed effects model Y<sub>d</sub> = &alpha; + &beta;<sub>1</sub> X<sub>1</sub> + U<sub>j</sub> + W<sub>ij</sub>
       * where Y<sub>d</sub>: download speed, X<sub>1</sub>: time (fixed effect), U<sub>j</sub> a category-specific random effect, W<sub>ij</sub>: an individual-specific random effect.
+      * https://watermark.silverchair.com/kxh014.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf[…]OvVzFjg_NEYgj8OjvJwjHJKs6AuvhqMfsPRp3NRIoAMdjZuVtl1VGlRJ
     * (Renny) Beta regression: 
       * https://sst-stats-sfu.slack.com/files/U010MPK0QHM/F039QQ1S916/beta_regression_for_modelling_rates_and_proportions.pdf
     * Bayesian methods? (need ref) Too niche?
