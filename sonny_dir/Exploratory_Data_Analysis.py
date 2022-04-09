@@ -65,8 +65,10 @@ def makeData(df, aggregate_by, conType, value):
       output_data = dat.pivot_table(values=value,index=[aggregate_by],columns=['Date'],aggfunc='mean')
     
     # Append 'tests' and 'DA_POP'
-    output_data[['tests','DA_POP']] = dat.groupby(aggregate_by).agg({'tests':'sum','DA_POP':'mean'})
-
+    if aggregate_by == "DAUID":
+      output_data[['tests','DA_POP']] = dat.groupby(aggregate_by).agg({'tests':'sum','DA_POP':'mean'})
+    else:
+      output_data[['tests','DA_POP']] = dat.groupby(aggregate_by).agg({'tests':'sum','DA_POP':'sum'})
     return output_data
 
 
@@ -77,17 +79,31 @@ def dataAggregation(df, aggregate_by, conType):
     wm = lambda x: np.average(x, weights=df.loc[x.index, 'tests'])
 
     if conType:
-      dat = df.groupby([aggregate_by,'Date','conn_type'],as_index=False).agg({"avg_u_mbps":wm,
-                                                                              "avg_d_mbps":wm,
-                                                                              "avg_lat_ms":wm,
-                                                                              "tests":"sum",
-                                                                              "DA_POP":wm})
+      if aggregate_by == 'DAUID':
+        dat = df.groupby([aggregate_by,'Date','conn_type'],as_index=False).agg({"avg_u_mbps":wm,
+                                                                                "avg_d_mbps":wm,
+                                                                                "avg_lat_ms":wm,
+                                                                                "tests":"sum",
+                                                                                "DA_POP":wm})
+      else:
+        dat = df.groupby([aggregate_by,'Date','conn_type'],as_index=False).agg({"avg_u_mbps":wm,
+                                                                                "avg_d_mbps":wm,
+                                                                                "avg_lat_ms":wm,
+                                                                                "tests":"sum",
+                                                                                "DA_POP":"sum"})
     else: 
-      dat = df.groupby([aggregate_by,'Date'],as_index=False).agg({"avg_u_mbps":wm,
-                                                                  "avg_d_mbps":wm,
-                                                                  "avg_lat_ms":wm,
-                                                                  "tests":"sum",
-                                                                  "DA_POP":wm})
+      if aggregate_by == 'DAUID':
+        dat = df.groupby([aggregate_by,'Date'],as_index=False).agg({"avg_u_mbps":wm,
+                                                                    "avg_d_mbps":wm,
+                                                                    "avg_lat_ms":wm,
+                                                                    "tests":"sum",
+                                                                    "DA_POP":wm})
+      else:
+        dat = df.groupby([aggregate_by,'Date'],as_index=False).agg({"avg_u_mbps":wm,
+                                                                    "avg_d_mbps":wm,
+                                                                    "avg_lat_ms":wm,
+                                                                    "tests":"sum",
+                                                                    "DA_POP":"sum"})
     return dat
 
 
