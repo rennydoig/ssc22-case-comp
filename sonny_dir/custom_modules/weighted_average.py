@@ -101,12 +101,11 @@ def gen_w_avg(df, group_col, to_avg, to_sum, weight='tests'):
                     avg_table = pd.concat([avg_table, temp_combined])
     
     # convert kbps to mbps:
-    try:
+    if 'avg_d_kbps' in to_avg:
         avg_table['avg_d_mbps'] = avg_table.loc[:,'avg_d_kbps'] / 1000
         avg_table['avg_u_mbps'] = avg_table.loc[:,'avg_u_kbps'] / 1000
         avg_table = avg_table.drop(columns = ['avg_d_kbps', 'avg_u_kbps'])
-    except:
-        break
+    
     gpd_table = gpd.GeoDataFrame(avg_table, geometry='geometry', crs = crs)
     #gpd_table = gpd_table.to_crs('EPSG:3347') # statistics canada lambert
 
@@ -115,5 +114,7 @@ def gen_w_avg(df, group_col, to_avg, to_sum, weight='tests'):
 def get_dest_df(df, dest_col='PCUID', fillna='0000', centroid = 'centroid'):
     temp_df = df.copy()
     temp_df[dest_col] = temp_df.loc[:, dest_col].fillna(fillna)
-    dest_df = temp_df.loc[temp_df[dest_col]!= fillna, centroid]
+    unique_dest = temp_df[dest_col].unique()
+    temp_unique = temp_df.drop_duplicates(subset = [dest_col], keep='first')
+    dest_df = temp_unique.loc[temp_unique[dest_col]!= fillna, centroid]
     return dest_df
