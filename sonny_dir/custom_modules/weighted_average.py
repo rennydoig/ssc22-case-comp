@@ -1,7 +1,7 @@
 import geopandas as gpd
 import pandas as pd
 import numpy as np
-import rtree
+#import rtree
 #import os
 #import pickle
 #import matplotlib.pyplot as plt
@@ -114,7 +114,12 @@ def gen_w_avg(df, group_col, to_avg, to_sum, weight='tests'):
 def get_dest_df(df, dest_col='PCUID', fillna='0000', centroid = 'centroid'):
     temp_df = df.copy()
     temp_df[dest_col] = temp_df.loc[:, dest_col].fillna(fillna)
-    unique_dest = temp_df[dest_col].unique()
-    temp_unique = temp_df.drop_duplicates(subset = [dest_col], keep='first')
-    dest_df = temp_unique.loc[temp_unique[dest_col]!= fillna, centroid]
+    
+    ## The following codes only uses unique pop centre tile. Only for exploratory purposes. s --> not recommended. 
+    # unique_dest = temp_df[dest_col].unique()
+    # temp_unique = temp_df.drop_duplicates(subset = [dest_col], keep='first')
+    # dest_df = temp_unique.loc[temp_unique[dest_col]!= fillna, centroid]
+
+    dest_df = temp_df.loc[temp_df[dest_col] != fillna, centroid]
+
     return dest_df
