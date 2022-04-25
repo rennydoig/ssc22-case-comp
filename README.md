@@ -79,3 +79,16 @@ Faculty Supervisor: Lloyd Elliott
 * We can use 'leave-the-latest-out'. Fit our models using t to T-1 data, and test the model performance on the 2021-Q4 data
 
 
+
+### 4. Comparing regions
+
+* The second and third outcomes for the case competition are:
+  * "comparative analysis of rural and underserved communities in terms of progress towards the Commitment"
+  * "identification of statistically reliable methods to assess and compare rural and underserved communities' realized internet access"
+* The first point seems to be looking for results that compare several regions in terms of the Commitment; the second for a statistically sound method (e.g. hypothesis test) for comparing internet access between regions
+* Key distinctions are: 1) first emphasizes results and second emphasizes methodology, and 2) first is concerned exclusively with the Commitment while the second is focused on internet access more generally
+* 1) To assess whether or not a region has achieved the target we could generate confidence/prediction intervals and check whether they capture the target
+  * For the "in terms of progress" part we could perform a similar test for 25\%, 50\%, etc. of the Commitment and compare results at each level
+* This interval could also be used for pairwise comparisons between regions
+  * Might need to consider whether a Bonferroni-style correction would result in numerical issues given the large number of regions
+* Need to look into hypothesis testing for mixed effect models
