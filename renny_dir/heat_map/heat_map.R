@@ -16,7 +16,7 @@ data <- st_read("../ookla-canada-speed-tiles.shp")
 
 # function for merging year and quarter into one time variable
 merge_time <- Vectorize(function(year, quarter){
-  as.numeric(year) + (as.numeric(substr(quarter, 2, 2))-1)/4 - 2019})
+  as.numeric(as.character(year)) + (as.numeric(substr(quarter, 2, 2))-1)/4 - 2019})
 
 
 
@@ -34,11 +34,26 @@ data_lf <- data %>%
 
 # Generate heat map ------------------------------------------------------------
 
-pal <- colorNumeric(palette="Blues", domain=data_lf$avg_d_mbps)
 
-leaflet()
+# initialize leaflet map
+canada <- geojsonio::geojson_read("https://github.com/johan/world.geo.json/blob/master/countries/CAN.geo.json", what = "sp")
+
+base_map <- leaflet(canada) %>%
+  setView(-96, 37.8, 4) %>%
+  addProviderTiles("MapBox", options = providerTileOptions(
+    id = "mapbox.light",
+    accessToken = Sys.getenv('MAPBOX_ACCESS_TOKEN')))
+
+
+# add our polygon data to the map
+
+data_temp <- filter(data_lf, PRUID==10)
+
+pal <- colorNumeric(palette="Blues", domain=data_temp$avg_d_mbps)
+
+leaflet() %>%
   addTiles() %>%
-  addPolygons(data=data_lf, stroke=F, smoothFactor=0.2, fillOpacity=1, color= ~pal(avg_d_mbps))
+  addPolygons(data=data_temp, stroke=F, smoothFactor=0.2, fillOpacity=1, color= ~pal(avg_d_mbps))
 
 
 
