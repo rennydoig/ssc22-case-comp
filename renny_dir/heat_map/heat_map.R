@@ -10,9 +10,11 @@ rm(list=ls())
 library(tidyverse)
 library(sf)
 library(leaflet)
+library(rgdal)
 
 # load in data
 data <- st_read("../ookla-canada-speed-tiles.shp")
+data <- readOGR(dsn="../ookla-canada-speed-tiles.shp", layer="ookla-canada-speed-tiles")
 
 # function for merging year and quarter into one time variable
 merge_time <- Vectorize(function(year, quarter){
@@ -41,14 +43,15 @@ for( gr in groupings )
   cat("Grouping by", gr)
   # gr_id <- filter(data, PRUID==10)[c(gr,"conn_type")]
   temp <- data %>%
-    select(c(avg_d_kbps, avg_u_kbps, tests, year, quarter, conn_type, gr)) %>%
-    mutate(time = merge_time(year, quarter), .keep="unused") %>%
-    # aggregate(gr_id, function(x) c(sum(x[1:3]), x[4:5]))
-    group_by(across(all_of(c("conn_type", "time", gr)))) %>%
+    filter(year=="2021" & quarter=="Q4") %>%
+    select(c(avg_d_kbps, avg_u_kbps, tests, conn_type, gr)) %>%
+    group_by(across(all_of(c("conn_type", gr)))) %>%
     summarise(avg_d_mbps = sum(tests * avg_d_kbps) / (1024*sum(tests)),
               avg_u_mbps = sum(tests * avg_u_kbps) / (1024*sum(tests)),
               .groups = "keep")
-  st_write(temp, paste0(group_dir, gr, ".shp",))
+  writeOGR(temp, dsn = paste0(group_dir, gr, ".shp"), layer = gr,
+           driver = "ESRI Shapefile" )
+  st_write(temp, paste0(group_dir, gr, ".shp"))
   cat("- Done. \n")
 }
 
