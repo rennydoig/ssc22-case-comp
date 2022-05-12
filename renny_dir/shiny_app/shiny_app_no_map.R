@@ -50,7 +50,7 @@ get_summary_table <- function(region, conn, inc_urban){
   if(conn==1){
     temp <- filter(temp, conn_type=="mobile")
   } else if(conn==2){
-    temp <- filter(temp, conn_type="fixed")
+    temp <- filter(temp, conn_type=="fixed")
   }
   
   temp %>%
@@ -59,9 +59,12 @@ get_summary_table <- function(region, conn, inc_urban){
            u_thresh = avg_u_kbps >= target_u * 1024,
            .keep = "unused") %>%
     group_by(across(all_of(c("conn_type", region)))) %>%
-    summarise(prop_u = mean(d_thresh),
-              prop_d = mean(u_thresh),
-              .groups="keep")
+    summarise(prop_u = sum(tests * u_thresh) / sum(tests),
+              prop_d = sum(tests * d_thresh) / sum(tests),
+              n_tests = sum(tests),
+              .groups="keep") %>%
+    mutate(se_d = prop_d * (1-prop_d) / n_tests,
+           se_u = prop_u * (1-prop_u) / n_tests)
 }
 
 
@@ -109,5 +112,6 @@ server <- function(input, output, session){
 
 
 shinyApp(ui = ui, server=server)
+
 
 
