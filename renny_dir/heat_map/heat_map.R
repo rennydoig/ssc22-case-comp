@@ -51,7 +51,8 @@ for( gr in groupings )
               .groups = "keep")
   writeOGR(temp, dsn = paste0(group_dir, gr, ".shp"), layer = gr,
            driver = "ESRI Shapefile" )
-  st_write(temp, paste0(group_dir, gr, ".shp"))
+  st_write(temp, dsn=paste0(gr, ".shp"), layer=gr, 
+           driver = "ESRI Shapefile")
   cat("- Done. \n")
 }
 
