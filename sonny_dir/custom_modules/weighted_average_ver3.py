@@ -50,26 +50,35 @@ def w_avg(df, group_col, to_avg, to_w_sum, to_sum, weight='tests'):
         new_row = [group]
 
         # compute the weighted averages:
-        for a_col in to_avg:              
-            if temp_table[a_col].dtype == 'O':
-                temp_table.loc[:,a_col] = pd.to_numeric(df[a_col])
-            temp_avg = np.average(temp_table[a_col], weights = temp_table[weight])
-            new_row.append(temp_avg)
-        
+        try:
+            for a_col in to_avg:              
+                if temp_table[a_col].dtype == 'O':
+                    temp_table.loc[:,a_col] = pd.to_numeric(df[a_col])
+                temp_avg = np.average(temp_table[a_col], weights = temp_table[weight])
+                new_row.append(temp_avg)
+        except:
+            pass
+            
         # compute the weighted sum:
-        for s_col in to_w_sum:
-            if temp_table[s_col].dtype == 'O':
-                temp_table.loc[:,s_col] = pd.to_numeric(df[s_col])
-            temp_sum = np.dot(temp_table[s_col], temp_weight)
-            new_row.append(temp_sum)
-        
+        try:
+            for s_col in to_w_sum:
+                if temp_table[s_col].dtype == 'O':
+                    temp_table.loc[:,s_col] = pd.to_numeric(df[s_col])
+                temp_sum = np.dot(temp_table[s_col], temp_weight)
+                new_row.append(temp_sum)
+        except:
+            pass
+            
         # compute the sum:
-        for ss_col in to_sum:
-            if temp_table[ss_col].dtype == 'O':
-                temp_table.loc[:, ss_col] = pd.to_numeric(df[ss_col])
-            temp_ssum = np.sum(temp_table[ss_col])
-            new_row.append(temp_ssum)
-        
+        try:
+            for ss_col in to_sum:
+                if temp_table[ss_col].dtype == 'O':
+                    temp_table.loc[:, ss_col] = pd.to_numeric(df[ss_col])
+                temp_ssum = np.sum(temp_table[ss_col])
+                new_row.append(temp_ssum)
+        except:
+            pass
+            
         # append the weight value
         new_row.append(np.sum(temp_table[weight]))
         
@@ -140,7 +149,7 @@ def get_dest_df(df, dest_col='PCUID', fillna='0000', centroid = 'centroid'):
 
     return dest_df
 
-def w_avg2(df, group_col, to_avg, to_w_sum, to_sum, weight='tests'):
+def w_avg2(df, group_col, to_avg, to_w_sum=None, to_sum=None, weight='tests'):
     """ Computes weighted averages of specified columns"""
     '''
     df: target data frame.
@@ -156,7 +165,7 @@ def w_avg2(df, group_col, to_avg, to_w_sum, to_sum, weight='tests'):
     
     groups = df[group_col].unique() 
     conn_types = df['conn_type'].unique()
-    input_cols = [group_col, 'conn_type', 'time',  to_avg, to_w_sum, to_sum, weight]
+    input_cols = [group_col, 'conn_type', 'time', to_avg, to_w_sum, to_sum, weight]
     result_cols = flatten_list(input_cols)
     result_df = pd.DataFrame(columns = result_cols)
     df = df.replace(np.nan, 1)
@@ -185,26 +194,34 @@ def w_avg2(df, group_col, to_avg, to_w_sum, to_sum, weight='tests'):
                     new_row = [group, t, time]
 
                     # compute the weighted averages:
-                    for a_col in to_avg:              
-                        if temp_table[a_col].dtype == 'O':
-                            temp_table.loc[:,a_col] = pd.to_numeric(df[a_col])
-                        temp_avg = np.average(temp_table[a_col], weights = temp_table[weight])
-                        new_row.append(temp_avg)
+                    try:
+                        for a_col in to_avg:              
+                            if temp_table[a_col].dtype == 'O':
+                                temp_table.loc[:,a_col] = pd.to_numeric(df[a_col])
+                            temp_avg = np.average(temp_table[a_col], weights = temp_table[weight])
+                            new_row.append(temp_avg)
+                    except:
+                        continue    
                     
                     # compute the weighted sum:
-                    for s_col in to_w_sum:
-                        if temp_table[s_col].dtype == 'O':
-                            temp_table.loc[:,s_col] = pd.to_numeric(df[s_col])
-                        temp_sum = np.dot(temp_table[s_col], temp_weight)
-                        new_row.append(temp_sum)
+                    try:
+                        for s_col in to_w_sum:
+                            if temp_table[s_col].dtype == 'O':
+                                temp_table.loc[:,s_col] = pd.to_numeric(df[s_col])
+                            temp_sum = np.dot(temp_table[s_col], temp_weight)
+                            new_row.append(temp_sum)
+                    except:
+                        continue
                     
                     # compute the sum:
-                    for ss_col in to_sum:
-                        if temp_table[ss_col].dtype == 'O':
-                            temp_table.loc[:, ss_col] = pd.to_numeric(df[ss_col])
-                        temp_ssum = np.sum(temp_table[ss_col])
-                        new_row.append(temp_ssum)
-                    
+                    try:
+                        for ss_col in to_sum:
+                            if temp_table[ss_col].dtype == 'O':
+                                temp_table.loc[:, ss_col] = pd.to_numeric(df[ss_col])
+                            temp_ssum = np.sum(temp_table[ss_col])
+                            new_row.append(temp_ssum)
+                    except:
+                        continue
                     # append the weight value
                     new_row.append(np.sum(temp_table[weight]))
                     

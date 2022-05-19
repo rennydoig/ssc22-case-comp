@@ -6,3 +6,6 @@ __pycache__/
 *.lnk
 *.ini
 *.sh
+## google docs extensions ##
+*.gdoc
+*.gslides
