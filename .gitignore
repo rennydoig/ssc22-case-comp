@@ -1,4 +1,5 @@
-dataset/
+dataset/ 
+archive/ 
 *.pyc*
 __pycache__/
 *.un*
